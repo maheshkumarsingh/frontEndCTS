@@ -1,0 +1,44 @@
+1
+create table department
+(department_id number(3) primary key,
+department_name varchar(30),
+department_block_number number(3));
+
+2
+create table student
+(student_id number primary key,
+student_name varchar(30),
+address varchar(40),
+city varchar(30),
+department_id number,
+constraint fk_dept_num foreign key (department_id) references department(department_id)
+);
+
+3
+create table staff
+(
+staff_id number primary key,
+staff_name varchar(30),
+department_id number(3),
+constraint fk_staff_dept_id foreign key (department_id) references department(department_id)
+);
+
+4
+
+alter table buses 
+modify Ac_Available varchar(5);
+
+5
+
+alter table buses 
+drop column Ac_Available;
+
+6
+
+ALTER TABLE course
+  ADD CONSTRAINT CHK_FEES CHECK (fees > 0);
+
+7
+
+drop table registration;
+drop table student;
